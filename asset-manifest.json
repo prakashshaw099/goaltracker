@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/goaltracker/static/css/main.638bc9dd.css",
+    "main.js": "/goaltracker/static/js/main.062d3b39.js",
+    "index.html": "/goaltracker/index.html",
+    "main.638bc9dd.css.map": "/goaltracker/static/css/main.638bc9dd.css.map",
+    "main.062d3b39.js.map": "/goaltracker/static/js/main.062d3b39.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.638bc9dd.css",
+    "static/js/main.062d3b39.js"
+  ]
+}
