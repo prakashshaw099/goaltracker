@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaCirclePlus } from "react-icons/fa6";
 
-const AddTask = ({ setTodoList }) => {
+const AddTask = ({ setTodoList, editableDt, setEditableDt }) => {
+  const taskRef = useRef();
   const uid = Math.random().toString(16).slice(2);
 
   const [task, setTask] = useState("");
 
   let width = document.documentElement.clientWidth;
 
+  useEffect(() => {
+    if (editableDt) {
+      setTask(editableDt);
+      setEditableDt("");
+      taskRef?.current?.focus();
+    }
+  }, [editableDt]);
+
   return (
     <div className="fixed bottom-4 mx-4 flex">
       {/* <div className="relative"> */}
       <input
+        ref={taskRef}
         type="text"
         placeholder="Add Item"
         className="bg-[#ecf1f5] rounded-full p-5 pr-[60px] text-[#858992] decoration-transparent outline-none"
