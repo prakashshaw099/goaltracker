@@ -4,7 +4,7 @@ import { FaRegCircle } from "react-icons/fa";
 import { LiaEdit } from "react-icons/lia";
 import { MdDeleteOutline } from "react-icons/md";
 
-const TodoList = ({ listData = [], setTodoList }) => {
+const TodoList = ({ listData = [], setTodoList, setEditableDt }) => {
   const checkTaskHandler = (isCheck, item, index) => {
     let newData = [...listData];
     newData?.splice(index, 1, {
@@ -40,8 +40,25 @@ const TodoList = ({ listData = [], setTodoList }) => {
               </div>
             </div>
             <div className="flex gap-2">
-              <LiaEdit className="text-[24px] text-[#858992]" />
-              <MdDeleteOutline className="text-[24px] text-[#858992]" />
+              <LiaEdit
+                className="text-[24px] text-[#858992]"
+                onClick={() => {
+                  let newData = [...listData];
+                  newData?.splice(index, 1);
+
+                  setTodoList(newData);
+                  setEditableDt(item?.task);
+                }}
+              />
+              <MdDeleteOutline
+                className="text-[24px] text-[#858992]"
+                onClick={() => {
+                  let newData = [...listData];
+                  newData?.splice(index, 1);
+
+                  setTodoList(newData);
+                }}
+              />
             </div>
           </div>
         );
